@@ -1,2 +1,29 @@
 # useful-conf
 Just some configuration that I use for various situations
+
+## Adding targets for cargo
+1. Place ce `config.toml` in `.cargo/` in your project directory.
+2. Install the compiler for the target you want to add: `brew install mingw-w64` and `brew install SergioBenitez/osxct/x86_64-unknown-linux-gnu`
+3. Add the compiler to rustup: `rustup target add x86_64-pc-windows-gnu` or `rustup target add x86_64-unknown-linux-gnu`.
+4. Run `cargo build --target x86_64-pc-windows-gnu` or `cargo build --target x86_64-unknown-linux-gnu`.
+
+## Shell utils
+There is some useful function to add to your shell in `add-to-shell.sh`. They are some that I use and want to save for future use.
+
+## Website utils
+- [stable diffusion](https://stablediffusionweb.com) : describe and it draws the image.
+- [imglarger](https://imglarger.com) : enlarge an image.
+- [upscale.media](https://www.upscale.media) : upscale an image.
+- [nvidia canvas](https://www.nvidia.com/fr-fr/studio/canvas/) : draw like a kid, get a nice image.
+- [playphrase](https://www.playphrase.me/#/search) : find a phrase in a movie.
+- [clean png](https://www.cleanpng.com) : PNG database.
+- [water mark remover](https://www.watermarkremover.io/fr) : remove watermark from image.
+- [3d bay](https://clouddevs.com/3dbay/) : 3D illustration database.
+- [placeit](https://placeit.net) : Mockups.
+- [morflax things](https://things.morflax.com) : create a 3D object.
+- [wicked background](https://wickedbackgrounds.com) : create a background.
+- [brandmark.io](https://brandmark.io) : create a logo.
+- [vivus instant](https://maxwellito.github.io/vivus-instant/) : create a SVG animation.
+
+## Makefile
+The makefile is just a template for a makefile. I use it for my projects. It is not perfect but it is a good start.
