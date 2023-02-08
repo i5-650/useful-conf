@@ -1,0 +1,45 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'rusty-exif'",
+			"cargo": {
+				"args": [
+					"build",
+					"--bin=rusty-exif",
+					"--package=rusty-exif"
+				],
+				"filter": {
+					"name": "rusty-exif",
+					"kind": "bin"
+				}
+			},
+			"args": [
+				"-f data/",
+				"-e file"
+			],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'rusty-exif'",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=rusty-exif",
+					"--package=rusty-exif"
+				],
+				"filter": {
+					"name": "rusty-exif",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}
