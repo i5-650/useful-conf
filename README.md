@@ -29,11 +29,11 @@ There is some useful function to add to your shell in `add-to-shell.sh`. They ar
 The makefile is just a template for a makefile. I use it for my projects. It is not perfect but it is a good start.
 
 # Instagram Links 
-[Pixwox](https://www.pixwox.com/profile/elonrmuskk/) 
-[Imginn](https://imginn.com/elonrmuskk/)
-[InstaFreeView](https://instafreeview.com/profile/?user=elonrmuskk)
-[Iganony](https://iganony.com/profile/elonrmuskk)
-[InstaNavigation](https://instanavigation.com/profile/elonrmuskk)
+- [Pixwox](https://www.pixwox.com/profile/elonrmuskk/) 
+- [Imginn](https://imginn.com/elonrmuskk/)
+- [InstaFreeView](https://instafreeview.com/profile/?user=elonrmuskk)
+- [Iganony](https://iganony.com/profile/elonrmuskk)
+- [InstaNavigation](https://instanavigation.com/profile/elonrmuskk)
 
 
 # Send SMS (once a day or you need to pay)
