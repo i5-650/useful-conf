@@ -24,6 +24,12 @@ There is some useful function to add to your shell in `add-to-shell.sh`. They ar
 - [wicked background](https://wickedbackgrounds.com) : create a background.
 - [brandmark.io](https://brandmark.io) : create a logo.
 - [vivus instant](https://maxwellito.github.io/vivus-instant/) : create a SVG animation.
+- [playgroundai.com](https://playgroundai.com/) : edit photos by telling an AI what to do.
+- [saymine.com/](https://www.saymine.com/) : tells you which site have your data and allow you to delete them.
+- [cleanup.pictures](https://cleanup.pictures/) : remove objects or anything your select from your picture.
+- [narakeet.com](https://www.narakeet.com/): voiceovers with text to speech.
+- [talktobooks](https://books.google.com/talktobooks/): find quotes in books.
+- [photosonic](https://photosonic.writesonic.com/) : describe an image and the AI creates it. 
 
 ## Makefile
 The makefile is just a template for a makefile. I use it for my projects. It is not perfect but it is a good start.
