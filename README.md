@@ -49,3 +49,22 @@ curl -X POST https://textbelt.com/text \
        --data-urlencode message='Hello world' \
        -d key=textbelt
 ```
+
+# Osint Tips:
+## Duolingo - Retrieve infos
+`https://duolingo.com/2017-06-30/users?email=` making a get request to this url with an email as parameter allow you to access data.
+
+## Paypal : disclosing phone number digits
+Using `password forgot` and typing the email allow you to see some digits.
+
+## Google names with email address
+Share a google document with someone but uncheck "notify people" and the name is disclosed.
+
+## Reverse images search:
+- https://pimeyes.com/en
+- https://search4faces.com
+- https://karmadecay.com
+- https://depositphotos.com/search/by-images.html
+
+
+
