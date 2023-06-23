@@ -1,33 +1,39 @@
-CC ?= gcc # or whatever compiler you want to use
+CC = gcc
+C_FLAGS = -Wall -Wextra -Werror
+RElEASE_FLAGS ?= -Wall -Wextra -Ofast -ffast-math -finline-functions -funroll-loops -fomit-frame-pointer -DNDEBUG
+C_DBG = -g3 -DDEBUG
 
-PROJECT_OBJ ?= main.o file.o
+NAME = project
+NAME_TEST = $(NAME)-test
+NAME_RELEASE = $(NAME)-release
 
-# Flags
-CFLAGS ?= -Wall -Wextra
-RElEASE_FLAGS ?= -Wall -Wextra -Ofast -ffast-math -finline-functions 
+SOURCE = src
+TARGET = target
 
-# Debug
-DEBUG ?= -g -DDEBUG
+CFILES = $(shell find $(SOURCE) -type f -name '*.c')
+OFILES = $(patsubst $(SOURCE)/%.c, $(TARGET)/%.o, $(CFILES))
 
-.SUFFIXES: .c .o
+.PHONY: all clean
 
-PROJECT = project
-RLS_PROJECT = release_project
+all: $(NAME).out
 
-all: $(PROJECT)
+test: $(NAME_TEST).out
 
+release: $(NAME_RELEASE).out
 
-$(PROJECT): $(PROJECT_OBJ)
-	$(CC) $(DEBUG) $(CFLAGS) -o $(PROJECT).out $(PROJECT_OBJS)
+$(NAME_TEST).out: $(OFILES)
+	$(CC) $(C_FLAGS) $(C_DBG) $^ -o $@
 
-release: $(RLS_PROJECT)
+$(NAME_RELEASE).out: $(OFILES)
+	$(CC) $(C_FLAGS) $(RElEASE_FLAGS) $^ -o $@
 
-$(RLS_PROJECT): $(PROJECT_OBJS)
-	$(CC) $(RElEASE_FLAGS) -o $(RLS_PROJECT).out $(PROJECT_OBJS)
+$(TARGET)/%.o: $(SOURCE)/%.c
+	@mkdir -p $(@D)
+	$(CC) $(C_FLAGS) -c $< -o $@
 
+$(NAME).out: $(OFILES)
+	$(CC) $(C_FLAGS) $^ -o $@
 
-.c.o: 
-	$(CC) $(DEBUG) $(CFLAGS) -c $*.c
-
-clean: 
-	rm -rf *.o *.out *.txt
+clean:
+	rm -rf $(TARGET)/*
+	rm -f $(NAME).out
