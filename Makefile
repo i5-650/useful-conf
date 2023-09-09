@@ -1,7 +1,7 @@
 CC = gcc
 C_FLAGS = -Wall -Wextra -Werror
 RElEASE_FLAGS ?= -Wall -Wextra -Ofast -ffast-math -finline-functions -funroll-loops -fomit-frame-pointer -DNDEBUG
-C_DBG = -g3 -DDEBUG
+C_DBG = -Wall -Werror -g3 -DDEBUG
 
 NAME = project
 NAME_TEST = $(NAME)-test
