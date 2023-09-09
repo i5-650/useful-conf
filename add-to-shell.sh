@@ -22,10 +22,6 @@ decompress-archive(){
 	return 0
 }
 
-rpi(){
-	return $(ssh pi@192.168.1.35)
-}
-
 archive_dirs(){
 	declare -i i=0
 	for aFolder in "$1"/*/; do
@@ -48,4 +44,14 @@ unarchive_dirs(){
 	done
 	echo "Unarchived $i fodlers"
 	return 0
+}
+
+alias docker-start='/Applications/Docker.app/Contents/MacOS/Docker\ Desktop.app/Contents/MacOS/Docker\ Desktop'
+alias docker-stop='killall Docker\ Desktop'
+alias docker-restart='docker-stop && docker-start'
+alias docker-stop-all='docker stop $(docker ps -a -q)'
+alias pvpn="sudo protonvpn $@"
+
+function fip(){
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$1"
 }
