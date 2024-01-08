@@ -29,13 +29,15 @@ There is some useful function to add to your shell in `add-to-shell.sh`. They ar
 - [cleanup.pictures](https://cleanup.pictures/) : remove objects or anything your select from your picture.
 - [narakeet.com](https://www.narakeet.com/): voiceovers with text to speech.
 - [talktobooks](https://books.google.com/talktobooks/): find quotes in books.
-- [photosonic](https://photosonic.writesonic.com/) : describe an image and the AI creates it. 
+- [photosonic](https://photosonic.writesonic.com/) : describe an image and the AI creates it.
+- [cybermap](https://cybermap.kaspersky.com/fr) : a "live" map of all cyber attacks.
 
 ## Makefile
 The makefile is just a template for a makefile. I use it for my projects. It is not perfect but it is a good start.
+Just put the makefile in a directory, type 'make init' and it will create the src directory. Once you have your project with sub folder and so on, you can type 'make' and it will compile your project in a `target` directory.
 
-# Instagram Links 
-- [Pixwox](https://www.pixwox.com/profile/elonrmuskk/) 
+# Instagram Links
+- [Pixwox](https://www.pixwox.com/profile/elonrmuskk/)
 - [Imginn](https://imginn.com/elonrmuskk/)
 - [InstaFreeView](https://instafreeview.com/profile/?user=elonrmuskk)
 - [Iganony](https://iganony.com/profile/elonrmuskk)
@@ -65,6 +67,3 @@ Share a google document with someone but uncheck "notify people" and the name is
 - https://search4faces.com
 - https://karmadecay.com
 - https://depositphotos.com/search/by-images.html
-
-
-

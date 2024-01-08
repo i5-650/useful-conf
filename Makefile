@@ -1,6 +1,6 @@
 CC = gcc
-C_FLAGS = -Wall -Wextra -Werror
-RElEASE_FLAGS ?= -Wall -Wextra -Ofast -ffast-math -finline-functions -funroll-loops -fomit-frame-pointer -DNDEBUG
+C_FLAGS = -Wall -Wextra -Werror -Wpedantic -Wshadow
+RELEASE_FLAGS ?= -Wall -Wextra -Ofast -ffast-math -finline-functions -funroll-loops -fomit-frame-pointer -DNDEBUG
 C_DBG = -Wall -Werror -g3 -DDEBUG
 
 NAME = project
@@ -9,31 +9,39 @@ NAME_RELEASE = $(NAME)-release
 
 SOURCE = src
 TARGET = target
+RELEASE_DIR = $(TARGET)/release
+TEST_DIR = $(TARGET)/test
+BUILD_DIR = $(TARGET)/build
 
 CFILES = $(shell find $(SOURCE) -type f -name '*.c')
 OFILES = $(patsubst $(SOURCE)/%.c, $(TARGET)/%.o, $(CFILES))
 
-.PHONY: all clean
+.PHONY: all test release clean
 
-all: $(NAME).out
+all: $(BUILD_DIR)/$(NAME).out
 
-test: $(NAME_TEST).out
+test: $(TEST_DIR)/$(NAME_TEST).out
 
-release: $(NAME_RELEASE).out
+release: $(RELEASE_DIR)/$(NAME_RELEASE).out
 
-$(NAME_TEST).out: $(OFILES)
+init:
+	mkdir -p $(SOURCE)
+	echo '#include <stdio.h>\n\nint main() {\n    printf("Hello, world!\\n");\n    return 0;\n}' > $(SOURCE)/main.c
+
+
+$(TEST_DIR)/$(NAME_TEST).out: $(OFILES)
 	$(CC) $(C_FLAGS) $(C_DBG) $^ -o $@
 
-$(NAME_RELEASE).out: $(OFILES)
-	$(CC) $(C_FLAGS) $(RElEASE_FLAGS) $^ -o $@
+$(RELEASE_DIR)/$(NAME_RELEASE).out: $(OFILES)
+	$(CC) $(C_FLAGS) $(RELEASE_FLAGS) $^ -o $@
 
 $(TARGET)/%.o: $(SOURCE)/%.c
 	@mkdir -p $(@D)
 	$(CC) $(C_FLAGS) -c $< -o $@
 
-$(NAME).out: $(OFILES)
+$(BUILD_DIR)/$(NAME).out: $(OFILES)
+	mkdir -p $(@D)
 	$(CC) $(C_FLAGS) $^ -o $@
 
 clean:
-	rm -rf $(TARGET)/*
-	rm -f $(NAME).out
+	rm -rf $(TARGET)
